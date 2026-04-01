@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --green: #27ae60;
+    --green-light: #2ecc71;
+    --bg: #f7f9f8;
+    --surface: #ffffff;
+    --dark: #0e2634;
+    --text-muted: #6b7280;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased text-paramarsh-dark;
+    background-color: #f7f9f8;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display text-paramarsh-dark font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+
+  /* Underline link animation */
+  .link-underline {
+    position: relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--green);
+    transition: width 0.25s ease;
+  }
+
+  .link-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Section label utility */
+  .section-label {
+    @apply text-xs font-display font-bold uppercase tracking-[0.2em] text-paramarsh-green;
+  }
+
+  /* Card lift */
+  .card-lift {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+  display: inline-flex;
+}
